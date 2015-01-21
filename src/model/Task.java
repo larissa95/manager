@@ -10,4 +10,5 @@ public class Task {
 	@DatabaseField (foreign = true, foreignAutoRefresh = true)
     private Client client;
 	
+	
 }
