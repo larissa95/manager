@@ -20,4 +20,7 @@ public class Client {
 	    //one to many relationship to task
 	    @ForeignCollectionField
 	    ArrayList<Task> tasks;
+	    
+	    
+	    //provide a many to many relationship to employee here
 }
