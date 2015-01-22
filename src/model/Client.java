@@ -20,7 +20,37 @@ public class Client {
 	    //one to many relationship to task
 	    @ForeignCollectionField
 	    ArrayList<Task> tasks;
+
+		public int getId() {
+			return id;
+		}
+
+		public void setId(int id) {
+			this.id = id;
+		}
+
+		public String getName() {
+			return name;
+		}
+
+		public void setName(String name) {
+			this.name = name;
+		}
+
+		public String getEmail() {
+			return email;
+		}
+
+		public void setEmail(String email) {
+			this.email = email;
+		}
+
+		public ArrayList<Task> getTasks() {
+			return tasks;
+		}
+
+		public void setTasks(ArrayList<Task> tasks) {
+			this.tasks = tasks;
+		}
 	    
-	    
-	    //provide a many to many relationship to employee here
 }
