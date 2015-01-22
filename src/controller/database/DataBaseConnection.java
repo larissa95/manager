@@ -14,9 +14,9 @@ public class DataBaseConnection {
 	 * @throws ClassNotFoundException 
 	 * @throws SQLException 
 	 */
-	public static Connection getDataBaseConnection() throws SQLException{
+	public static Connection getDataBaseConnection() throws SQLException, ClassNotFoundException{
 		if(dataBaseConnection == null){
-		//	Class.forName("org.h2.Driver");
+			//Class.forName("org.h2.Driver");
 			dataBaseConnection = DriverManager
 					.getConnection("jdbc:h2:~/manager;TRACE_LEVEL_FILE=0;TRACE_LEVEL_SYSTEM_OUT=1","username","123#passwortForDb#123");
 		}
