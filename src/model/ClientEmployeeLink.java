@@ -11,5 +11,24 @@ public class ClientEmployeeLink {
 	 private Client client;
      @DatabaseField(foreign = true)
 	 private Employee employee;
+	
+     public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public Client getClient() {
+		return client;
+	}
+	public void setClient(Client client) {
+		this.client = client;
+	}
+	public Employee getEmployee() {
+		return employee;
+	}
+	public void setEmployee(Employee employee) {
+		this.employee = employee;
+	}
 
 }

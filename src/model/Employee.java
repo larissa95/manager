@@ -14,8 +14,8 @@ public class Employee {
 	private String name;
 	
     //one to many relationship to work
-    @ForeignCollectionField
-    ArrayList<Work> work;
+   // @ForeignCollectionField
+   // ArrayList<Work> work;
     //provide a many to many relationship to task here
 
 	public int getId() {
@@ -33,7 +33,7 @@ public class Employee {
 	public void setName(String name) {
 		this.name = name;
 	}
-
+/*
 	public ArrayList<Work> getWork() {
 		return work;
 	}
@@ -41,6 +41,6 @@ public class Employee {
 	public void setWork(ArrayList<Work> work) {
 		this.work = work;
 	}
-
+*/
 
 }

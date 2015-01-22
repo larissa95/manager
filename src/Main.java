@@ -29,10 +29,11 @@ public class Main {
 		        Client client = new Client();
 		        client.setName("HI");
 		        client.setEmail("test@gmx.de");
-		        client.setTasks(new ArrayList<Task>());
+		      //  client.setTasks(new ArrayList<Task>());
 		        clientDao.create(client);
+
 			}catch(Exception e){
-				
+				e.printStackTrace();
 			}
 	}
 

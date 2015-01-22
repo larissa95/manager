@@ -18,8 +18,8 @@ public class Client {
 	    private String email;
 	    
 	    //one to many relationship to task
-	    @ForeignCollectionField
-	    ArrayList<Task> tasks;
+	 //   @ForeignCollectionField
+	 //   ArrayList<Task> tasks;
 
 		public int getId() {
 			return id;
@@ -44,7 +44,7 @@ public class Client {
 		public void setEmail(String email) {
 			this.email = email;
 		}
-
+/*
 		public ArrayList<Task> getTasks() {
 			return tasks;
 		}
@@ -52,5 +52,5 @@ public class Client {
 		public void setTasks(ArrayList<Task> tasks) {
 			this.tasks = tasks;
 		}
-	    
+	*/    
 }
