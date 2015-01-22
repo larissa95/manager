@@ -22,6 +22,11 @@ public class DataBaseTables {
 					"taskId INT NOT NULL",
 					"FOREIGN KEY (taskId) REFERENCES Task(Id)",
 					"startDate DATETIME", "endDate DATETIME"
+			},
+			{ "ToDo", "Id INT PRIMARY KEY AUTO_INCREMENT NOT NULL",
+				"Name VARCHAR(255)", "taskId INT NOT NULL",
+				"FOREIGN KEY (taskId) REFERENCES Task(Id)", "costEstimate INT"
+				
 			}
 					
 	
