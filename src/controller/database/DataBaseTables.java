@@ -16,21 +16,21 @@ public class DataBaseTables {
 					"FOREIGN KEY (clientId) REFERENCES Client(Id)",
 					"FOREIGN KEY (employeeId) REFERENCES Employee(Id)",
 					"PRIMARY KEY (clientId, employeeId)" },
+			{ "Task", "Id INT PRIMARY KEY AUTO_INCREMENT NOT NULL",
+					"Name VARCHAR(255)", "Description VARCHAR(255)",
+					"startDate DATETIME", "deadline DATETIME", "Finished BIT",
+					"payment INT" },
 			{ "Work", "Id INT PRIMARY KEY AUTO_INCREMENT NOT NULL",
 					"Name VARCHAR(255)", "employeeId INT NOT NULL",
 					"FOREIGN KEY (employeeId) REFERENCES Employee(Id)",
 					"taskId INT NOT NULL",
 					"FOREIGN KEY (taskId) REFERENCES Task(Id)",
-					"startDate DATETIME", "endDate DATETIME"
-			},
+					"startDate DATETIME", "endDate DATETIME" },
 			{ "ToDo", "Id INT PRIMARY KEY AUTO_INCREMENT NOT NULL",
-				"Name VARCHAR(255)", "taskId INT NOT NULL",
-				"FOREIGN KEY (taskId) REFERENCES Task(Id)", "costEstimate INT"
-				
-			}
-					
-	
-	
+					"Name VARCHAR(255)", "taskId INT NOT NULL",
+					"FOREIGN KEY (taskId) REFERENCES Task(Id)",
+					"costEstimate INT" }
+
 	};
 
 	/**
