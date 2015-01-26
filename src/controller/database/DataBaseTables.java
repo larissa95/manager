@@ -34,12 +34,10 @@ public class DataBaseTables {
 	};
 
 	/**
-	 * create Tables in DataBase
+	 * create Tables in DataBase like string tables is structured
 	 */
-	public static void createTables() {
+	public static void createTables(Connection dataBaseConnection) {
 		try {
-			Connection dataBaseConnection = DataBaseConnection
-					.getDataBaseConnection();
 			Statement stmt = dataBaseConnection.createStatement();
 			if (dataBaseConnection != null) {
 				String createTable = null;
