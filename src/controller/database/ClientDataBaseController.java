@@ -5,7 +5,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-
 import model.Client;
 
 public class ClientDataBaseController {
@@ -17,10 +16,7 @@ public class ClientDataBaseController {
 	 * @param client
 	 * @return id of the client in the database (primary key)
 	 */
-	
-	
 	public static int insertClient(Client client) {
-		
 		Connection dataBaseConnection;
 		int keyID = -1;
 		try {
@@ -30,6 +26,7 @@ public class ClientDataBaseController {
 			String insertQuery = String.format(
 					"INSERT INTO Client VALUES(null,'%s' , '%s')",client.getName(), client.getEmail()
 					);
+			//TBD if(employee/task list is not empty => add links in database)
 			PreparedStatement pstmt = dataBaseConnection.prepareStatement(
 					insertQuery, Statement.RETURN_GENERATED_KEYS);
 			pstmt.executeUpdate();
@@ -45,5 +42,15 @@ public class ClientDataBaseController {
 			e.printStackTrace();
 		}
 		return keyID;
+	}
+	
+	/**
+	 * loads Client from database
+	 * 
+	 * @return specific client for id (which is saved in database)
+	 */
+	public static Client loadClient(int clientId) {
+		//TBD
+		return null;
 	}
 }
