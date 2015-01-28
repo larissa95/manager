@@ -1,12 +1,21 @@
 package model;
 import java.util.ArrayList;
 
+import controller.database.ClientDataBaseController;
+
 public class Client {
-	
+
 	    private int id;
 	    private String name;
 	    private String email;
 
+	    public Client(String name, String email){
+	    	this.name = name;
+	    	this.email = email;
+	    	//has to be at the end of the constructor, as the values afterwards are not set in database
+	    	this.id = ClientDataBaseController.insertClient(this);
+	    }
+	    
 		public int getId() {
 			return id;
 		}
