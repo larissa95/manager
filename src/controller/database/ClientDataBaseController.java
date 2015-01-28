@@ -1,5 +1,6 @@
 package controller.database;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Connection;
@@ -31,7 +32,13 @@ public class ClientDataBaseController {
 					);
 			PreparedStatement pstmt = dataBaseConnection.prepareStatement(
 					insertQuery, Statement.RETURN_GENERATED_KEYS);
-			keyID = pstmt.executeUpdate();
+			pstmt.executeUpdate();
+			ResultSet keys = pstmt.getGeneratedKeys();
+			//if the client is inserted, the id in the database is returned here
+			if (keys.next()) {
+				keyID = keys.getInt(1);
+			}
+		
 		}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
