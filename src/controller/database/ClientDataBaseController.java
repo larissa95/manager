@@ -28,7 +28,7 @@ public class ClientDataBaseController {
 		
 		if(dataBaseConnection != null){
 			String insertQuery = String.format(
-					"INSERT INTO Client VALUES(null,'test' , 'test@')"
+					"INSERT INTO Client VALUES(null,'%s' , '%s')",client.getName(), client.getEmail()
 					);
 			PreparedStatement pstmt = dataBaseConnection.prepareStatement(
 					insertQuery, Statement.RETURN_GENERATED_KEYS);
@@ -44,7 +44,6 @@ public class ClientDataBaseController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.out.println(keyID);
 		return keyID;
 	}
 }
