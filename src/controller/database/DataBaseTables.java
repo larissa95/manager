@@ -6,6 +6,7 @@ import java.sql.Statement;
 public class DataBaseTables {
 
 	// this string array gives a good overview over the existing tables
+	//To Do create links between tables
 	static String[][] tables = {
 			{ "Client", "Id INT PRIMARY KEY AUTO_INCREMENT NOT NULL",
 					"Name VARCHAR(255)", "Email VARCHAR(255)" },
