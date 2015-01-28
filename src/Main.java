@@ -16,7 +16,7 @@ public class Main {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		Client client = new Client("Frederik","Horcshc");
+		Client test = new Client.ClientBuilder("Test").email("123").createClient();
 	}
 	
 }

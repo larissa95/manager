@@ -1,4 +1,5 @@
 package model;
+
 import java.util.ArrayList;
 
 import controller.database.ClientDataBaseController;
@@ -27,8 +28,6 @@ public class Client {
 	    	this.email = email;
 	    	this.employees = employees;
 	    	this.tasks = tasks;
-	    	//has to be at the end of the constructor, as the values afterwards are not set in database
-	    	this.id = ClientDataBaseController.insertClient(this);
 	    }
 	    
 		public int getId() {
@@ -55,8 +54,9 @@ public class Client {
 			this.email = email;
 		}
 		
-		
+	    //static nested class => can be instantiated without having to instantiate the outer class it belongs to. (stand alone class)
 		public static class ClientBuilder{
+				
 				private int id = -1;
 			    private String name = "";
 			    private String email = "";
@@ -90,9 +90,6 @@ public class Client {
 					//create new Client in DataBase
 					return new Client(this.name,this.email,this.employees,this.tasks);
 			    }
-			    
-			    
-
 		}
 		
 }

@@ -5,7 +5,6 @@ import java.util.ArrayList;
 public class Employee {
    
     private int id;
-    
 	private String name;
 	
 	public int getId() {
