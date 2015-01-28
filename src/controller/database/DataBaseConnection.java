@@ -14,11 +14,19 @@ public class DataBaseConnection {
 	 * @throws ClassNotFoundException 
 	 * @throws SQLException 
 	 */
-	public static Connection getDataBaseConnection() throws SQLException, ClassNotFoundException{
+	public static Connection getDataBaseConnection() throws SQLException{
 		if(dataBaseConnection == null){
-			//Class.forName("org.h2.Driver");
-			dataBaseConnection = DriverManager
-					.getConnection("jdbc:h2:~/manager;TRACE_LEVEL_FILE=0;TRACE_LEVEL_SYSTEM_OUT=1","username","123#passwortForDb#123");
+			try {
+				dataBaseConnection = DriverManager
+						.getConnection("jdbc:h2:~/managerDB;ifexists=true;TRACE_LEVEL_FILE=0;TRACE_LEVEL_SYSTEM_OUT=1","username","123#passwortForDb#123");
+			} catch (SQLException e) {
+				//DATABASE_NOT_FOUND_1 = 90013, error code for database not found
+				if(e.getErrorCode() == 90013){
+					dataBaseConnection = DriverManager
+							.getConnection("jdbc:h2:~/managerDB;TRACE_LEVEL_FILE=0;TRACE_LEVEL_SYSTEM_OUT=1","username","123#passwortForDb#123");
+					DataBaseTables.createTables(dataBaseConnection);
+				}
+			}
 		}
 		return dataBaseConnection;
 	}
