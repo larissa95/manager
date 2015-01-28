@@ -6,7 +6,7 @@ import java.sql.Statement;
 public class DataBaseTables {
 
 	// this string array gives a good overview over the existing tables
-	//To Do create links between tables
+	// To Do create links between tables
 	static String[][] tables = {
 			{ "Client", "Id INT PRIMARY KEY AUTO_INCREMENT NOT NULL",
 					"Name VARCHAR(255)", "Email VARCHAR(255)" },
@@ -18,9 +18,16 @@ public class DataBaseTables {
 					"FOREIGN KEY (employeeId) REFERENCES Employee(Id)",
 					"PRIMARY KEY (clientId, employeeId)" },
 			{ "Task", "Id INT PRIMARY KEY AUTO_INCREMENT NOT NULL",
+					"clientId INT NOT NULL",
+					"FOREIGN KEY (clientId) REFERENCES Client(Id)",
 					"Name VARCHAR(255)", "Description VARCHAR(255)",
 					"startDate DATETIME", "deadline DATETIME", "Finished BIT",
 					"payment INT" },
+			{ "Task_Employee_Link", "taskId INT NOT NULL",
+					"employeeId INT NOT NULL",
+					"FOREIGN KEY (taskId) REFERENCES Task(Id)",
+					"FOREIGN KEY (employeeId) REFERENCES Employee(Id)",
+					"PRIMARY KEY (taskId, employeeId)" },
 			{ "Work", "Id INT PRIMARY KEY AUTO_INCREMENT NOT NULL",
 					"Name VARCHAR(255)", "employeeId INT NOT NULL",
 					"FOREIGN KEY (employeeId) REFERENCES Employee(Id)",
