@@ -54,5 +54,47 @@ public class Client {
 		public void setEmail(String email) {
 			this.email = email;
 		}
-  
+		
+		
+		public static class ClientBuilder{
+				private int id = -1;
+			    private String name = "";
+			    private String email = "";
+			    private ArrayList<Employee> employees = new ArrayList<Employee>();
+			    private ArrayList<Task> tasks = new ArrayList<Task>();
+			    
+			    public ClientBuilder(String name){
+			    	this.name = name;
+			    }
+			    
+			    public ClientBuilder id(int id){
+			    	this.id = id;
+			    	return this;
+			    }
+			    public ClientBuilder email(String email){
+			    	this.email = email;
+			    	return this;
+			    }
+			    public ClientBuilder employees(ArrayList<Employee> employees){
+			    	this.employees = employees;
+			    	return this;
+			    }
+			    public ClientBuilder tasks(ArrayList<Task> tasks){
+			    	this.tasks = tasks;
+			    	return this;
+			    }
+			    public Client createClient(){
+					if(id!=-1){
+						return new Client(this.id,this.name,this.email,this.employees,this.tasks);
+					}
+					//create new Client in DataBase
+					return new Client(this.name,this.email,this.employees,this.tasks);
+			    }
+			    
+			    
+
+		}
+		
 }
+
+
